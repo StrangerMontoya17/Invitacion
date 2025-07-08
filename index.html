@@ -165,35 +165,43 @@
             position: absolute;
             opacity: 0;
             cursor: pointer;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            z-index: 1;
         }
         
-        .radio-option input[type="radio"]:checked + .radio-label {
+        .radio-option input[type="radio"]:checked + .radio-content .radio-label {
             color: #667eea;
         }
         
-        .radio-option input[type="radio"]:checked ~ .checkmark {
+        .radio-option input[type="radio"]:checked + .radio-content .checkmark {
             background: #667eea;
             border-color: #667eea;
         }
         
-        .radio-option input[type="radio"]:checked ~ .checkmark:after {
+        .radio-option input[type="radio"]:checked + .radio-content .checkmark:after {
             display: block;
+        }
+        
+        .radio-content {
+            display: flex;
+            align-items: center;
+            position: relative;
+            pointer-events: none;
         }
         
         .radio-label {
             font-size: 1.1rem;
             font-weight: 500;
             color: #2c3e50;
-            padding-left: 35px;
-            cursor: pointer;
+            margin-left: 35px;
             transition: color 0.3s ease;
         }
         
         .checkmark {
             position: absolute;
-            top: 50%;
-            left: 20px;
-            transform: translateY(-50%);
+            left: 0;
             height: 20px;
             width: 20px;
             background-color: #fff;
@@ -266,7 +274,7 @@
     <div class="heart">♥</div>
     
     <div class="container">
-        <h1>¡Feliz aniversario cotonetica</h1>
+        <h1>¡Feliz aniversario cotonetica!</h1>
         <p class="subtitle">Tengo una invitación muy especial para ti. Quiero que elijas el lugar perfecto para almorzar en nuestro día:</p>
 
         <!-- Imagen de la pareja -->
@@ -277,7 +285,7 @@
         <!-- Formulario -->
         <form action="https://formspree.io/f/xrbkweqz" method="POST">
             <input type="hidden" name="_subject" value="¡Elección de almuerzo para el aniversario!">
-            <input type="hidden" name="_next" value="https://tu-usuario.github.io/invitacion-aniversario/gracias.html">
+            <input type="hidden" name="_next" value="https://strangermontoya17.github.io/Invitacion/gracias.html">
 
             <div class="form-container">
                 <h3 class="form-title">Elige nuestro destino:</h3>
@@ -285,14 +293,18 @@
                 <div class="radio-group">
                     <div class="radio-option">
                         <input type="radio" name="lugar" value="La Azotea" id="azotea" required>
-                        <label for="azotea" class="radio-label">🌅 La Azotea</label>
-                        <span class="checkmark"></span>
+                        <div class="radio-content">
+                            <span class="checkmark"></span>
+                            <label for="azotea" class="radio-label">🌅 La Azotea</label>
+                        </div>
                     </div>
                     
                     <div class="radio-option">
                         <input type="radio" name="lugar" value="La Farfalla" id="farfalla" required>
-                        <label for="farfalla" class="radio-label">🦋 La Farfalla</label>
-                        <span class="checkmark"></span>
+                        <div class="radio-content">
+                            <span class="checkmark"></span>
+                            <label for="farfalla" class="radio-label">🦋 La Farfalla</label>
+                        </div>
                     </div>
                 </div>
                 
