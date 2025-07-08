@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias por elegir!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Animación de corazones que caen */
+        .heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 30px;
+            animation: fall 4s ease-in-out infinite;
+        }
+        
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; font-size: 25px; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 1s; font-size: 35px; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 2s; font-size: 28px; }
+        .heart:nth-child(4) { left: 40%; animation-delay: 3s; font-size: 32px; }
+        .heart:nth-child(5) { left: 50%; animation-delay: 4s; font-size: 26px; }
+        .heart:nth-child(6) { left: 60%; animation-delay: 1.5s; font-size: 30px; }
+        .heart:nth-child(7) { left: 70%; animation-delay: 2.5s; font-size: 27px; }
+        .heart:nth-child(8) { left: 80%; animation-delay: 3.5s; font-size: 33px; }
+        .heart:nth-child(9) { left: 90%; animation-delay: 0.5s; font-size: 29px; }
+        
+        @keyframes fall {
+            0% { 
+                transform: translateY(-100vh) rotate(0deg); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translateY(100vh) rotate(360deg); 
+                opacity: 0; 
+            }
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 700px;
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 1s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            }
+            to { 
+                transform: translateY(0); 
+                opacity: 1; 
+            }
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ff6b6b);
+            background-size: 200% 100%;
+            animation: gradient 3s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            color: #4ecdc4;
+            margin-bottom: 20px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            line-height: 1.2;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); }
+            to { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1), 0 0 10px rgba(102, 126, 234, 0.5); }
+        }
+        
+        .message {
+            font-size: 1.4rem;
+            color: #34495e;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+        
+        .highlight {
+            color: #667eea;
+            font-weight: 600;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+        }
+        
+        .love-note {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #e17055;
+        }
+        
+        .love-note p {
+            font-size: 1.1rem;
+            color: #2d3436;
+            margin: 0;
+            font-style: italic;
+        }
+        
+        .floating-elements {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: rgba(102, 126, 234, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .floating-elements:nth-child(2) {
+            top: 40px;
+            left: 30px;
+            animation-delay: 1s;
+        }
+        
+        .floating-elements:nth-child(3) {
+            bottom: 30px;
+            right: 40px;
+            animation-delay: 2s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+        
+        .countdown {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .countdown h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .countdown p {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .message {
+                font-size: 1.2rem;
+            }
+            
+            .success-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    
+    <div class="container">
+        <div class="floating-elements">🌹</div>
+        <div class="floating-elements">💕</div>
+        <div class="floating-elements">✨</div>
+        
+        <div class="success-icon">💕</div>
+        
+        <h1>¡Mejor elección no pudiste tomar, mi cotito!</h1>
+        
+        <p class="message">
+            Tu elección ha sido <span class="highlight">perfecta</span>, como siempre. 
+            Ahora solo queda esperar el momento mágico de nuestra cita especial.
+        </p>
+        
+        <div class="love-note">
+            <p>
+                "Recuerda que solo debes preocuparte por estar linda como siempre. 
+                ¡Te espero para nuestra cita especial! 💖"
+            </p>
+        </div>
+        
+        <div class="countdown">
+            <h3>¡Nos vemos pronto! 🥰</h3>
+            <p>Prepárate para una tarde inolvidable llena de amor y sorpresas</p>
+        </div>
+    </div>
+</body>
+</html>
